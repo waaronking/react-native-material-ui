@@ -53,14 +53,19 @@ function getStyles(props, context) {
 class HeaderAcount extends PureComponent {
     renderFooter = () => {
         const { footer } = this.props;
+        let style = this.context.uiTheme.drawerHeaderListItem;
 
         if (!footer) {
             return null;
         }
 
+        if (Object.keys(this.props.style) && Object.keys(this.props.style).length > 0) {
+            style = this.props.style;
+        }
+
         const props = {
             ...footer,
-            style: this.context.uiTheme.drawerHeaderListItem,
+            style: style
         };
 
         return <ListItem {...props} />;
