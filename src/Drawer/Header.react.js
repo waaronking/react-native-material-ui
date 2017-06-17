@@ -18,13 +18,17 @@ const contextTypes = {
 
 function getStyles(props, context) {
     const { drawerHeader } = context.uiTheme;
-    const { image } = props;
+    const { image, backgroundColor } = props;
 
     const local = {};
 
     if (image) {
         local.contentContainer = {
             backgroundColor: null,
+        };
+    } else if (backgroundColor) {
+        local.contentContainer = {
+            backgroundColor: backgroundColor,
         };
     }
 
